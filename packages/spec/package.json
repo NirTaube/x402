@@ -1,0 +1,19 @@
+{
+  "name": "@x402/spec",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Protocol specification and schemas for x402",
+  "scripts": {
+    "validate": "node validate.js",
+    "test": "node validate.js",
+    "lint": "echo 'Spec validation only'",
+    "typecheck": "echo 'No TypeScript in spec package'",
+    "build": "echo 'Spec is documentation only'",
+    "clean": "echo 'Nothing to clean'"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "@apidevtools/swagger-parser": "^10.1.0"
+  }
+}

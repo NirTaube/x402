@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://x402.dev/schemas/quote.json",
+  "title": "Payment Quote",
+  "type": "object",
+  "required": ["quoteId", "requestHash", "price", "expiresAt", "paymentMethods", "signature"],
+  "properties": {
+    "quoteId": {
+      "type": "string",
+      "description": "Unique quote identifier"
+    },
+    "requestHash": {
+      "type": "string",
+      "pattern": "^sha256:[A-Za-z0-9_-]+$",
+      "description": "Hash of the canonical request"
+    },
+    "price": {
+      "type": "object",
+      "required": ["amount", "currency"],
+      "properties": {
+        "amount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Price in smallest currency unit"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency code (sat, btc, usd, etc.)"
+        }
+      }
+    },
+    "expiresAt": {
+      "type": "integer",
+      "description": "Unix timestamp (ms) when quote expires"
+    },
+    "paymentMethods": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["lightning", "onchain", "custom"]
+          },
+          "address": {
+            "type": "string"
+          },
+          "invoice": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "signature": {
+      "type": "string",
+      "description": "Ed25519 signature over canonical quote JSON"
+    },
+    "publicKey": {
+      "type": "string",
+      "description": "Ed25519 public key (hex)"
+    }
+  }
+}

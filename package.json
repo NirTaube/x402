@@ -1,0 +1,63 @@
+{
+  "name": "x402-paywall",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsx scripts/build.ts",
+    "clean": "tsx scripts/clean.ts",
+    "dev": "pnpm -r dev",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md,json}\"",
+    "lint": "pnpm -r lint",
+    "release": "tsx scripts/release.ts",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "dependencies": {
+    "@apidevtools/swagger-parser": "12.1.0",
+    "@edge-runtime/vm": "latest",
+    "@noble/ed25519": "3.0.0",
+    "@noble/hashes": "2.0.1",
+    "@opentelemetry/api": "latest",
+    "@vitest/browser-playwright": "latest",
+    "@vitest/browser-preview": "latest",
+    "@vitest/browser-webdriverio": "latest",
+    "@vitest/ui": "latest",
+    "@x402/core": "2.0.0",
+    "@x402/nextjs": "latest",
+    "@x402/proxy": "latest",
+    "ajv": "8.17.1",
+    "ajv-formats": "3.0.1",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "express": "5.2.1",
+    "fastify": "5.6.2",
+    "fastify-plugin": "5.1.0",
+    "happy-dom": "latest",
+    "jsdom": "latest",
+    "lucide-react": "0.561.0",
+    "next": "16.0.10",
+    "openapi-types": "latest",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "tailwind-merge": "3.4.0",
+    "tailwindcss-animate": "1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "postcss": "8.5.6",
+    "prettier": "^3.4.2",
+    "tailwindcss": "4.1.18",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}

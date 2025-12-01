@@ -1,0 +1,50 @@
+name: Feature Request
+description: Suggest an idea for this project
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your feature suggestion!
+  
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Is your feature request related to a problem?
+      placeholder: I'm always frustrated when...
+    validations:
+      required: true
+  
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe the solution you'd like
+      placeholder: I'd like to see...
+    validations:
+      required: true
+  
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Describe alternatives you've considered
+      placeholder: I also thought about...
+  
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      description: Which package would this affect?
+      options:
+        - "@x402/core"
+        - "@x402/proxy"
+        - "@x402/widget"
+        - "@x402/cli"
+        - "Adapter"
+        - "Documentation"
+        - "Other"
+    validations:
+      required: true

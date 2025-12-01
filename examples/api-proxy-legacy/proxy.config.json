@@ -1,0 +1,28 @@
+{
+  "upstream": "http://localhost:8080",
+  "port": 3000,
+  "signingKey": "${X402_SIGNING_KEY}",
+  "policy": {
+    "/api/generate": {
+      "price": 1000,
+      "currency": "sat"
+    },
+    "/api/stream": {
+      "price": 500,
+      "currency": "sat"
+    }
+  },
+  "storage": {
+    "type": "memory"
+  },
+  "paymentMethods": [
+    {
+      "type": "lightning",
+      "node": "${LIGHTNING_NODE}"
+    },
+    {
+      "type": "onchain",
+      "address": "${BITCOIN_ADDRESS}"
+    }
+  ]
+}

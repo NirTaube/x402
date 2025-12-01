@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://x402.dev/schemas/receipt.json",
+  "title": "Payment Receipt",
+  "type": "object",
+  "required": ["quoteId", "proof", "signature"],
+  "properties": {
+    "quoteId": {
+      "type": "string",
+      "description": "Reference to the quote being paid"
+    },
+    "idempotencyKey": {
+      "type": "string",
+      "description": "Client-provided idempotency key"
+    },
+    "proof": {
+      "type": "object",
+      "description": "Payment-method-specific proof",
+      "properties": {
+        "txid": {
+          "type": "string",
+          "description": "Transaction ID for onchain payments"
+        },
+        "preimage": {
+          "type": "string",
+          "description": "Preimage for Lightning payments"
+        }
+      }
+    },
+    "signature": {
+      "type": "string",
+      "description": "Ed25519 signature by client (optional)"
+    },
+    "submittedAt": {
+      "type": "integer",
+      "description": "Unix timestamp (ms) when receipt was submitted"
+    }
+  }
+}

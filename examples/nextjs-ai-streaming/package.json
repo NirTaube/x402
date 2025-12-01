@@ -1,0 +1,23 @@
+{
+  "name": "nextjs-ai-streaming-example",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@x402/nextjs": "workspace:*",
+    "@x402/widget": "workspace:*",
+    "next": "^16.0.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.1",
+    "typescript": "^5.7.3"
+  }
+}

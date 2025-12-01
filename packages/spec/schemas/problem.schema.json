@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://x402.dev/schemas/problem.json",
+  "title": "Problem Details for HTTP APIs (RFC 7807) + Quote",
+  "type": "object",
+  "required": ["type", "title", "status", "quote"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI reference identifying the problem type"
+    },
+    "title": {
+      "type": "string",
+      "description": "Short, human-readable summary"
+    },
+    "status": {
+      "type": "integer",
+      "description": "HTTP status code",
+      "enum": [402]
+    },
+    "detail": {
+      "type": "string",
+      "description": "Human-readable explanation"
+    },
+    "instance": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI reference identifying the specific occurrence"
+    },
+    "quote": {
+      "$ref": "./quote.schema.json"
+    }
+  }
+}

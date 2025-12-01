@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>x402 Static Download Example</title>
+  <script src="https://unpkg.com/@x402/widget@latest" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/@x402/widget@latest/styles.css">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+    }
+    .download-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #0070f3;
+      color: white;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <h1>Premium Content Download</h1>
+  <p>This file is protected by x402. Payment required to download.</p>
+  
+  <a href="/api/download/premium.pdf" 
+     class="download-btn"
+     data-x402>
+    Download Premium Content
+  </a>
+
+  <h2>How it works</h2>
+  <ol>
+    <li>Click the download button</li>
+    <li>Complete Lightning payment</li>
+    <li>Download starts automatically</li>
+  </ol>
+</body>
+</html>

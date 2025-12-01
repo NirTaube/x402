@@ -1,0 +1,130 @@
+openapi: 3.1.0
+info:
+  title: x402 Payment Protocol
+  version: 0.1.0
+  description: HTTP 402 Payment Required protocol specification
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://api.example.com
+    description: Protected API server
+
+paths:
+  /x402/receipts:
+    post:
+      summary: Submit payment receipt
+      description: Submit proof of payment to obtain access token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Receipt'
+      responses:
+        '200':
+          description: Receipt accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  receiptId:
+                    type: string
+                  status:
+                    type: string
+                    enum: [accepted]
+        '402':
+          description: Payment required
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /x402/receipts/{receiptId}:
+    get:
+      summary: Get receipt status
+      parameters:
+        - name: receiptId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Receipt details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Receipt'
+        '404':
+          description: Receipt not found
+
+components:
+  schemas:
+    Problem:
+      type: object
+      required:
+        - type
+        - title
+        - status
+        - quote
+      properties:
+        type:
+          type: string
+          format: uri
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        quote:
+          $ref: '#/components/schemas/Quote'
+
+    Quote:
+      type: object
+      required:
+        - quoteId
+        - requestHash
+        - price
+        - expiresAt
+        - paymentMethods
+        - signature
+      properties:
+        quoteId:
+          type: string
+        requestHash:
+          type: string
+        price:
+          type: object
+          properties:
+            amount:
+              type: integer
+            currency:
+              type: string
+        expiresAt:
+          type: integer
+        paymentMethods:
+          type: array
+          items:
+            type: object
+        signature:
+          type: string
+
+    Receipt:
+      type: object
+      required:
+        - quoteId
+        - proof
+        - signature
+      properties:
+        quoteId:
+          type: string
+        proof:
+          type: object
+        signature:
+          type: string
+        idempotencyKey:
+          type: string
