@@ -2,7 +2,7 @@
 
 import "../packages/spec/validate"
 
-export default function SyntheticV0PageForDeployment() {
+export default function DeploymentPreviewPage() {
   return (
     <main style={{ padding: 24, fontFamily: 'system-ui, -apple-system, Roboto, sans-serif' }}>
       <h1 style={{ margin: 0 }}>v0</h1>
