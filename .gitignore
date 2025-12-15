@@ -39,3 +39,5 @@ temp/
 # Package manager
 .pnpm-store/
 pnpm-lock.yaml
+
+notes/
